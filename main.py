@@ -20,7 +20,6 @@ def main():
         # Draw the rectangle around each face
         for (x, y, w, h) in faces:
             cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
-        print(len(faces))
         # Display
         cv2.imshow('img', img)
         # Stop if escape key is pressed
@@ -29,14 +28,14 @@ def main():
             break
 
         if len(faces) >= 1:
-            faceConfidence += 0.05
+            faceConfidence += 0.1
         else:
             faceConfidence = 0
         
         if faceConfidence > 0.8:
             print("FACE DETECTED!!!!!")
         else:
-            print
+            print()
 
     # Release the VideoCapture object
     cap.release()
